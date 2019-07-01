@@ -10,11 +10,8 @@
 #SBATCH --mem=32G
 
 # 2. Set the working dir
-if [[ -z $PBS_O_WORKDIR ]]; then
-	WORK_DIR=`pwd`
-else
-	WORK_DIR=$PBS_O_WORKDIR
-fi
+WORK_DIR=/scratch/punim0930/evan/bioinf-io-benchmark
+cd $WORK_DIR
 
 # 3. Makesure software is in your path
 module load BWA/0.7.17-intel-2018.u4 SAMtools/1.9-intel-2018.u4 Trimmomatic/0.36-Java-1.8.0_152
@@ -47,4 +44,3 @@ echo sort ended
 echo index started
 time samtools index ${WORK_DIR}/aln.bam
 echo index ended
-
