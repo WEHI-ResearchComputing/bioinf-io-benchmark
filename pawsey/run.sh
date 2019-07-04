@@ -10,11 +10,8 @@
 #SBATCH --partition=workq
 
 # 2. Set the working dir
-if [[ -z $PBS_O_WORKDIR ]]; then
-	WORK_DIR=`pwd`
-else
-	WORK_DIR=$PBS_O_WORKDIR
-fi
+WORK_DIR=/scratch/director2131/ethomas/bioinf-io-benchmark
+cd $WORK_DIR
 
 # 3. Makesure software is in your path
 module load bwa samtools java
