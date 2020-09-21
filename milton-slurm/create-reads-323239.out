@@ -1,0 +1,44 @@
+mktemp: too few X's in template 'output-xxxxxx'
+trim started
+TrimmomaticPE: Started with arguments:
+ -threads 20 /home/users/allstaff/thomas.e/hpcscratch/bioinf-io-benchmark/milton-slurm/../fake_data1.fq /home/users/allstaff/thomas.e/hpcscratch/bioinf-io-benchmark/milton-slurm/../fake_data2.fq -baseout /output-trimmed.fastq.gz ILLUMINACLIP:/stornext/System/data/apps/trimmomatic/trimmomatic-0.36/adapters/TruSeq3-PE.fa:1:30:20:4:true
+Using templated Output files: /output-trimmed_1P.fastq.gz /output-trimmed_1U.fastq.gz /output-trimmed_2P.fastq.gz /output-trimmed_2U.fastq.gz
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Exception in thread "main" java.io.FileNotFoundException: /output-trimmed_1P.fastq.gz (Permission denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.usadellab.trimmomatic.fastq.FastqSerializer.open(FastqSerializer.java:28)
+	at org.usadellab.trimmomatic.TrimmomaticPE.process(TrimmomaticPE.java:288)
+	at org.usadellab.trimmomatic.TrimmomaticPE.run(TrimmomaticPE.java:539)
+	at org.usadellab.trimmomatic.Trimmomatic.main(Trimmomatic.java:80)
+
+real	0m1.977s
+user	0m0.227s
+sys	0m0.076s
+trim ended
+align started
+/var/spool/slurmd/job323239/slurm_script: line 38: /aln.sam: Permission denied
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.002s
+align ended
+sort started
+/var/spool/slurmd/job323239/slurm_script: line 43: /aln.bam: Permission denied
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.001s
+sort ended
+index started
+[E::hts_open_format] Failed to open file "/aln.bam" : No such file or directory
+samtools index: failed to open "/aln.bam": No such file or directory
+
+real	0m0.059s
+user	0m0.004s
+sys	0m0.005s
+index ended
